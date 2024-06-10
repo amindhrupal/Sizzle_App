@@ -21,18 +21,33 @@
       }
     ],
     "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "/backend/server.js"
-      },
-      {
-        "src": "/admin/(.*)",
-        "dest": "/admin/index.html"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/frontend/index.html"
-      }
-    ]
+  {
+    "src": "/api/(.*)",
+    "dest": "/backend/server.js"
+  },
+  {
+    "src": "/admin/(.*)",
+    "dest": "/admin/dist/$1",
+    "continue": true
+  },
+  {
+    "src": "/admin",
+    "dest": "/admin/dist/index.html"
+  },
+  {
+    "src": "/static/(.*)",
+    "dest": "/frontend/dist/static/$1"
+  },
+  {
+    "src": "/(.*)",
+    "dest": "/frontend/dist/$1",
+    "continue": true
+  },
+  {
+    "src": "/",
+    "dest": "/frontend/dist/index.html"
+  }
+]
+
   }
   
